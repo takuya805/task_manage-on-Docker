@@ -10,6 +10,24 @@
   </head>
 
   <body>
+    <header>
+    <% if user_signed_in? %>
+     <ul>
+        <li>
+          <%= link_to "ログアウト", new_user_session %>
+        </li>
+      </ul>
+    <% else %>
+      <ul>
+        <li>
+          <%= link_to "新規登録", new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to "ログイン", new_user_session_path %>
+        </li>
+      </ul>
+    <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
