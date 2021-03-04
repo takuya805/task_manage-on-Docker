@@ -1,0 +1,17 @@
+<%= form_with model: @user, url: user_path(@user), local: true do |f| %>
+  <div class="field">
+    <%= f.label :'名前' %><br/>
+    <%= f.text_field :name%>
+  </div>
+   <div class="field">
+    <%= f.label :'使用言語'%><br/>
+    <%= f.text_field :language%>
+  </div>
+  <div class="field">
+    <%= f.label :'自己紹介'%><br/>
+    <%= f.text_field :introduction %>
+  </div>
+  <div class="field">
+    <%= f.submit '更新'%>
+  </div> 
+<% end %>

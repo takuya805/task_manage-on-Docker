@@ -1,0 +1,16 @@
+<div class="field">
+  <%= label_tag :'名前' %><br/>
+  <%= @user.name %>
+</div> 
+
+<div class="field">
+  <%= label_tag :'学び言語' %><br/>
+  <%= @user.language %>
+</div>
+
+<div class="field">
+  <%= label_tag :'自己紹介' %><br/>
+  <%= @user.introduction %>
+</div>
+<%= link_to '編集', edit_user_path %>
+<%= link_to '退会',  user_path, method: :delete, "data-confirm" => "本当に退会しますか？" %>
