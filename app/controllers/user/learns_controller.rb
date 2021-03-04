@@ -32,6 +32,7 @@ class User::LearnsController < ApplicationController
 
   private
   def learn_params
-    params.require(:learn).permit(:learn_time, :language, :content, :site, :start_time)
+    current_time = Time.current
+    params.require(:learn).permit(:learn_time, :language, :content, :site).merge(:start_time => current_time)
   end
 end

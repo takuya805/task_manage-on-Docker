@@ -20,10 +20,12 @@
 <%=link_to "学習を記録する", new_learn_path %>
 <%= month_calendar(events: @learns) do |date, learns| %>
   <%= date.day %>
-  
   <% learns.each do |learn| %>
     <div>
-      <%= link_to learn.learn_time, learn_path(learn) %>
+      <%= link_to learn_path(learn) do %>
+        <%= learn.language %><br/>
+        <%= learn.learn_time %>時間
+      <% end %>
     </div>
   <% end %>
 <% end %>
