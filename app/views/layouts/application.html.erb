@@ -11,11 +11,11 @@
 
   <body>
     <header>
-    <% if user_signed_in? %>
-     <ul>
-        <li>
-          <%= link_to "ログアウト", new_user_session_path %>
-        </li>
+     <% if user_signed_in? %>
+      <ul>
+          <li>
+            <%= link_to "ログアウト", destroy_user_session_path %>
+          </li>
       </ul>
     <% else %>
       <ul>
