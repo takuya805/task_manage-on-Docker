@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  learn_time: 1
+  language: MyString
+  content: MyString
+  site: MyString
+
+two:
+  learn_time: 1
+  language: MyString
+  content: MyString
+  site: MyString

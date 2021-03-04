@@ -1,0 +1,19 @@
+<%= form_with model: @learn, url: learn_path(@learn), method: :patch, local: true do |f| %>
+  <div class="field">
+    <%= f.label :'学習時間'%>
+    <%= f.text_field :learn_time %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :'学習言語'%>
+    <%= f.text_field :language %>
+  </div>
+
+  <div class="field">
+    <%= f.label :'学習内容'%>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.submit '更新'%>
+  </div>
+<% end %>

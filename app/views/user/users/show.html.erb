@@ -14,3 +14,18 @@
 </div>
 <%= link_to '編集', edit_user_path %>
 <%= link_to '退会',  user_path, method: :delete, "data-confirm" => "本当に退会しますか？" %>
+
+<h1>学習の記録</h1>
+
+<%=link_to "学習を記録する", new_learn_path %>
+<%= month_calendar(events: @learns) do |date, learns| %>
+  <%= date.day %>
+  <% learns.each do |learn| %>
+    <div>
+      <%= link_to learn_path(learn) do %>
+        <%= learn.language %><br/>
+        <%= learn.learn_time %>時間
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

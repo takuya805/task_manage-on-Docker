@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   scope module: :user do
     resources :users, only: [:show, :edit, :update, :destroy]
+    resources :learns, only: [:show, :new, :create, :edit, :update, :destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,6 +1,8 @@
 class User::UsersController < ApplicationController
+  before_action :authenticate_user!
   def show
     @user = User.find(params[:id])
+    @learns = current_user.learns
   end
 
   def edit
