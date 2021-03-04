@@ -10,7 +10,7 @@ class User::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to user_path
+    redirect_to user_path(@user)
   end
 
   def destroy
@@ -20,7 +20,8 @@ class User::UsersController < ApplicationController
   end
 
   private
-  def user_params
-    require.params(:user).permit(:name, :language, :introduction)
-  end
+
+    def user_params
+      params.require(:user).permit(:name, :language, :introduction)
+    end
 end
