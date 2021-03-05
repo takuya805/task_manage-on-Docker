@@ -4,7 +4,7 @@
 </div> 
 
 <div class="field">
-  <%= label_tag :'学び言語' %><br/>
+  <%= label_tag :'学んでいる言語' %><br/>
   <%= @user.language %>
 </div>
 
@@ -14,7 +14,7 @@
 </div>
 <%= link_to '編集', edit_user_path %>
 <%= link_to '退会',  user_path, method: :delete, "data-confirm" => "本当に退会しますか？" %>
-
+<%= link_to 'ノートを見る', languages_path %>
 <h1>学習の記録</h1>
 
 <%=link_to "学習を記録する", new_learn_path %>

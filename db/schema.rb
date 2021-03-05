@@ -10,18 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_041058) do
+ActiveRecord::Schema.define(version: 2021_03_05_020206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "languages", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "language"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "learns", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "learn_time", null: false
-    t.string "language", null: false
-    t.string "content", null: false
-    t.string "site"
-    t.datetime "start_time"
+    t.integer "language_id", null: false
+    t.string "title", null: false
+    t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
