@@ -1,11 +1,21 @@
 class User::LearnsController < ApplicationController
 
+  def index 
+    if params[:language_id].present?
+      @language = Language.find(params[:language_id])
+      @learns = @language.learns
+    else
+      @learns = current_user.learns
+    end
+  end
+
   def show
     @learn = Learn.find(params[:id])
   end
 
   def new
     @learn = Learn.new
+    @languages = current_user.languages
   end
 
   def create
@@ -16,6 +26,7 @@ class User::LearnsController < ApplicationController
 
   def edit
     @learn = Learn.find(params[:id])
+    @languages = current_user.languages
   end
 
   def update
@@ -33,6 +44,6 @@ class User::LearnsController < ApplicationController
   private
   def learn_params
     current_time = Time.current
-    params.require(:learn).permit(:learn_time, :language, :content, :site).merge(:start_time => current_time)
+    params.require(:learn).permit(:learn_time, :language, :content, :site, :language_id).merge(:start_time => current_time)
   end
 end

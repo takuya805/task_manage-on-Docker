@@ -6,7 +6,8 @@
   
   <div class="field">
     <%= f.label :'学習言語'%>
-    <%= f.text_field :language %>
+    <%= f.label :'学んだ言語'%><br/>
+    <%= f.collection_select :language_id, @languages, :id, :language, {include_blank: '学んだ言語を選択して下さい'}%>
   </div>
 
   <div class="field">
