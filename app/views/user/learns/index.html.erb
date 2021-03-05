@@ -1,4 +1,25 @@
-<% @learns.each do |learn| %>
-  <%= learn.language %>
-  <%= learn.title %>
+<% if @learn_time.present? %>
+  <% @learns.each do |learn|%>
+    <% if learn.created_at.strftime('%Y-%m-%d') == @learn_time %>
+      <div> 
+      <%= link_to learn_path(learn) do %>
+        <%= learn.title %>
+      <% end %>
+      <%= learn.language.language %>
+      <%= link_to '削除する', learn_path(learn), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+      </div>
+    <% end %>
+  <% end %>
+<% elsif @learn_time.blank? %>
+  <% @learns.each do |learn| %>
+    <div> 
+      <%= learn.created_at.strftime('%Y-%m-%d') %>
+    <%= link_to learn_path(learn) do %>
+      <%= learn.title %>
+    <% end %>
+      <%= learn.language.language %>
+      <%= link_to '削除する', learn_path(learn), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    </div>
+  <% end %>
 <% end %>
+<%= link_to "学習記録を書く", new_learn_path %>

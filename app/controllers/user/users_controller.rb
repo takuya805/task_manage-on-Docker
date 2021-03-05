@@ -2,7 +2,8 @@ class User::UsersController < ApplicationController
   before_action :authenticate_user!
   def show
     @user = User.find(params[:id])
-    @learns = current_user.learns
+    @learn_times = current_user.learn_times
+    @learn_time = LearnTime.new
   end
 
   def edit

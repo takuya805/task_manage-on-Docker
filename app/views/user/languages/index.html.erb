@@ -2,8 +2,9 @@
   <%= link_to learns_path(:language_id => language.id) do %>
     <% language.language %>
   <% end %>
-
 <% end %>
+
+<%= link_to "全ての学習記録を見る", learns_path %>
 
 <%= form_with model: @language, local: true do |f| %>
   <div class="form-group">

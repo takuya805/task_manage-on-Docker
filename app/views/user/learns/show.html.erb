@@ -1,11 +1,8 @@
 <h2>学習内容</h2>
-<div class="field">
-  <%= label_tag :'学習時間'%><br/>
-  <%= @learn.learn_time %>時間
-</div>
+
 <div class="field">
   <%= label_tag :'学習言語'%><br/>
-  <%= @learn.language %>
+  <%= @learn.language.language %>
 </div>
 <div class="field">
   <%= label_tag :'学習内容'%><br/>
