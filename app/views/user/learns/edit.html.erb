@@ -1,9 +1,5 @@
 <%= form_with model: @learn, url: learn_path(@learn), method: :patch, local: true do |f| %>
-  <div class="field">
-    <%= f.label :'学習時間'%>
-    <%= f.text_field :learn_time %>
-  </div>
-  
+
   <div class="field">
     <%= f.label :'学習言語'%>
     <%= f.label :'学んだ言語'%><br/>

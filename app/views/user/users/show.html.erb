@@ -17,14 +17,26 @@
 <%= link_to 'ノートを見る', languages_path %>
 <h1>学習の記録</h1>
 
-<%=link_to "学習を記録する", new_learn_path %>
-<%= month_calendar(events: @learns) do |date, learns| %>
+<%= form_with model: @learn_time, url: learn_times_path, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :'学習時間'%><br/>
+    <%= f.text_field :learn_time %>時間
+  </div> 
+  <div class="form-group">
+    <%= f.label :'学習言語'%><br/>
+    <%= f.text_field :language %>
+  </div>  
+  <div class="form-group">
+    <%= f.submit "記録する"%>
+  </div>
+<% end %>
+<%= month_calendar(events: @learn_times) do |date, learn_times| %>
   <%= date.day %>
-  <% learns.each do |learn| %>
+  <% learn_times.each do |learn_time| %>
     <div>
-      <%= link_to learn_path(learn) do %>
-        <%= learn.language %><br/>
-        <%= learn.learn_time %>時間
+      <%= learn_time.learn_time %>時間<br/>
+      <%= link_to learns_path(:learn_id => learn_time.id) do %>
+        <%= label_tag :'ノートを見る' %>
       <% end %>
     </div>
   <% end %>
